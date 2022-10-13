@@ -12,7 +12,10 @@ dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-arc'
-    implementation  'io.quarkus:quarkus-jackson:2.12.2.Final'
+    // https://mvnrepository.com/artifact/io.quarkus/quarkus-resteasy-jackson
+    implementation 'io.quarkus:quarkus-resteasy-jackson:2.13.2.Final'
+
+
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }
