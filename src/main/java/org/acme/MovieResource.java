@@ -35,7 +35,7 @@ public class MovieResource{
     @Path("{movieToUpdate}")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.TEXT_PLAIN)
-    public Response updateMovie (@PathParam("{movieToUpdate}") String movieToUpdate, @QueryParam("movie") String updateMovie){
+    public Response updateMovie (@PathParam("movieToUpdate") String movieToUpdate, @QueryParam("movie") String updateMovie){
         movieList.stream().map(movie->
         {
             if (movie.equals(movieToUpdate)) return movieToUpdate;
