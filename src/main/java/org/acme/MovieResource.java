@@ -1,5 +1,7 @@
 package org.acme;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -12,12 +14,14 @@ import java.util.stream.Collectors;
 public class MovieResource{
     public static List<Movie> movieList = new ArrayList<>();
     @GET
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMovies(){
         return Response.ok(movieList).build();
     }
 
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/size")
     public Integer countMovies(){
@@ -25,6 +29,7 @@ public class MovieResource{
     }
     // Post method for adding new items to the list
     @POST
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createMovie(Movie movie){
@@ -33,6 +38,7 @@ public class MovieResource{
 
     }
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}/{title}")
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.TEXT_PLAIN)
@@ -51,6 +57,7 @@ public class MovieResource{
     }
     @DELETE
     @Path("{id}")
+    @RolesAllowed("admin")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteMovie(@PathParam("id") Long id ){
         Optional<Movie> movieToDelete = movieList.stream().filter(movie -> movie.getId().equals(id)).findFirst();

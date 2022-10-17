@@ -10,24 +10,17 @@ repositories {
 
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-resteasy'
+    //implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-arc'
-    // https://mvnrepository.com/artifact/io.quarku s/quarkus-resteasy-jackson
-    implementation 'io.quarkus:quarkus-resteasy-jackson:2.13.2.Final'
-    // https://mvnrepository.com/artifact/io.smallrye/smallrye-jwt
-    implementation 'io.smallrye:smallrye-jwt:4.0.0'
-    // https://mvnrepository.com/artifact/io.smallrye/smallrye-open-api-core
-    implementation 'io.smallrye:smallrye-open-api-core:3.0.1'
-    // https://mvnrepository.com/artifact/io.smallrye/smallrye-open-api
-    implementation 'io.smallrye:smallrye-open-api:3.0.1'
-    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    // https://mvnrepository.com/artifact/io.quarkus/quarkus-resteasy-jsonb
+    //implementation 'io.quarkus:quarkus-resteasy-jsonb:2.13.2.Final'
+    implementation 'io.quarkus:quarkus-security-jpa:2.13.0.Final'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql:2.13.0.Final'
+    implementation 'io.quarkus:quarkus-resteasy-reactive:2.13.0.Final'
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache:2.13.0.Final'
 
 
-
-
-
-
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }
